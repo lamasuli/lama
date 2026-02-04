@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>myNAME</title>
+
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        background: #050505;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: "Courier New", monospace;
+    }
+
+    .container {
+        text-align: center;
+    }
+
+    .binary-container {
+        color: #00ff88;
+        font-size: 1.8rem;
+        letter-spacing: 4px;
+        animation: glow 2s infinite alternate;
+    }
+
+    .real-name {
+        margin-top: 14px;
+        font-size: 1.1rem;
+        color: #ffffff;
+        letter-spacing: 3px;
+        opacity: 0.9;
+    }
+
+    @keyframes glow {
+        from { text-shadow: 0 0 5px #00ff88; }
+        to   { text-shadow: 0 0 20px #00ff88; }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="binary-container" id="binaryText"></div>
+    <div class="real-name">LAMA SULIMAN</div>
+</div>
+
+<script>
+    const name = "LAMA SULIMAN";
+    const chars = ["0", "1"];
+    const binaryText = document.getElementById("binaryText");
+
+    function animateBinary() {
+        let output = "";
+        for (let i = 0; i < name.length; i++) {
+            if (name[i] === " ") {
+                output += "   ";
+            } else {
+                output += chars[Math.floor(Math.random() * 2)];
+            }
+        }
+        binaryText.textContent = output;
+    }
+
+    setInterval(animateBinary, 120);
+</script>
+
+</body>
+</html>
